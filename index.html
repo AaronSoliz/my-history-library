@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History Book Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e2e2e2;
+        }
+        #searchBar {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>History Book Recommendation Database</h1>
+    <input type="text" id="searchBar" placeholder="Search by title, author, theme, etc.">
+    <table id="bookTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Time Period Covered</th>
+                <th>Region</th>
+                <th>Themes/Tags</th>
+                <th>Audience</th>
+                <th>Summary/Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A People's History of the United States</td>
+                <td>Howard Zinn</td>
+                <td>1980</td>
+                <td>1492–2001</td>
+                <td>United States</td>
+                <td>Social history, labor, civil rights, anti-establishment</td>
+                <td>General public, students</td>
+                <td>A bottom-up view of U.S. history, focusing on marginalized voices and systemic critiques.</td>
+            </tr>
+            <tr>
+                <td>Caliban and the Witch</td>
+                <td>Silvia Federici</td>
+                <td>2004</td>
+                <td>Late Middle Ages–Early Modern Europe</td>
+                <td>Europe</td>
+                <td>Feminism, Marxism, witch hunts, labor history</td>
+                <td>Academic, critical theory readers</td>
+                <td>Analyzes the role of women, witch hunts, and capitalism in shaping modern society.</td>
+            </tr>
+            <tr>
+                <td>The Jakarta Method</td>
+                <td>Vincent Bevins</td>
+                <td>2020</td>
+                <td>Cold War era (1950s–1980s)</td>
+                <td>Indonesia, Latin America, Global South</td>
+                <td>Cold War, anti-communism, U.S. foreign policy, mass killings</td>
+                <td>General public, historians, political science readers</td>
+                <td>Explores U.S.-backed anti-communist operations in Indonesia and their global influence.</td>
+            </tr>
+            <tr>
+                <td>Propaganda and Persuasion</td>
+                <td>Garth S. Jowett and Victoria O'Donnell</td>
+                <td>1986</td>
+                <td>20th century to present</td>
+                <td>Global</td>
+                <td>Propaganda, media studies, communication</td>
+                <td>Academic, media studies students</td>
+                <td>A comprehensive introduction to the history, theory, and practice of propaganda and persuasion.</td>
+            </tr>
+            <tr>
+                <td>The Federalist Papers</td>
+                <td>Alexander Hamilton, James Madison, John Jay</td>
+                <td>1787</td>
+                <td>18th century (U.S. Founding)</td>
+                <td>United States</td>
+                <td>Political philosophy, constitutional law</td>
+                <td>Students, scholars, general interest</td>
+                <td>A collection of essays arguing in favor of the U.S. Constitution and federal government structure.</td>
+            </tr>
+            <tr>
+                <td>The Anti-Federalist Papers</td>
+                <td>Various authors (including Brutus, Cato, Centinel)</td>
+                <td>1787–1789</td>
+                <td>18th century (U.S. Founding)</td>
+                <td>United States</td>
+                <td>Political philosophy, states' rights, individual liberty</td>
+                <td>Students, scholars, general interest</td>
+                <td>Writings opposing the ratification of the U.S. Constitution, advocating for stronger state power.</td>
+            </tr>
+            <tr>
+                <td>The U.S. Constitution</td>
+                <td>Founding Fathers</td>
+                <td>1787</td>
+                <td>18th century (U.S. Founding)</td>
+                <td>United States</td>
+                <td>Government structure, civil rights, law</td>
+                <td>General public, students, legal scholars</td>
+                <td>The supreme law of the United States, establishing the national framework of government.</td>
+            </tr>
+            <tr>
+                <td>China’s Trapped Transition</td>
+                <td>Minxin Pei</td>
+                <td>2006</td>
+                <td>Post-Mao era (1978–2006)</td>
+                <td>China</td>
+                <td>Authoritarianism, economic reform, governance</td>
+                <td>Scholars, political analysts, policy makers</td>
+                <td>Argues that China's economic reforms have failed to produce meaningful political liberalization.</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const searchBar = document.getElementById('searchBar');
+        searchBar.addEventListener('keyup', function() {
+            const filter = searchBar.value.toLowerCase();
+            const rows = document.querySelectorAll('#bookTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
