@@ -42,42 +42,45 @@
       text-decoration: none;
     }
   </style>
+
   <script>
+    // Dark mode must be set before the page renders
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
-      document.body?.classList?.add('dark');
     }
   </script>
 </head>
-<body>
+<body class="">
   <h1>A People's History of the United States</h1>
   <div class="meta">
     <h2>by Howard Zinn</h2>
     <p><strong>Year:</strong> 1980</p>
-    <p><strong>Time Period Covered:</strong> 1492–2001</p>
-    <p><strong>Region:</strong> United States</p>
-    <p><strong>Themes:</strong> Social history, labor, civil rights, anti-establishment</p>
-    <p><strong>Audience:</strong> General public, students</p>
-    <p><strong>Summary:</strong> A bottom-up view of U.S. history, focusing on marginalized voices and systemic critiques.</p>
+    <p><strong>Summary:</strong> A bottom-up view of U.S. history.</p>
   </div>
 
   <div class="btns">
     <button onclick="toggleReader()">Toggle Book Viewer</button>
-    <a href="data:application/epub+zip;base64,UEsDBBQAFggAANYDgUdvYassFAAAABQAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi9lcHViK3ppcFBLAwQUABYICADWA4FHAAAAAAIAAAAAAAAACQAAAE1FVEEtSU5GLwMAUEsDBBQAFggIANYDgUeQnwZ0mgAAAPQAAAAWAAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFWOwQ7CIBBE734F2atp0SuB9ltWulUisASo0b8Xa2zqcWdn5o0en8GLB+XiOBo49ycYh4O2HCu6SPn/JZo5FgNLjoqxuKIiBiqqWsWJ4sR2CRSrWm1qK4HhIITQmbnOzlNZz70i5sX7LmG9GfikWkfPaQYRaHLY1VciA5iSdxZrWyOZLqm0gL3jlY4NB/JXuqLkjqXlNuTreQNQSwMEFAAWCAgA1gOBR2DLzmZ4QgAAdbEAABQAAABpbmRleF9zcGxpdF8wMDUuaHRtbJ197ZIbx7Hlfz9FL2N3KUVgRqQs" download="zinn.epub">Download EPUB</a>
+    <a href="epubs/zinn.epub" download>Download EPUB</a>
   </div>
 
   <div id="viewer" style="display: none;"></div>
 
   <script>
     let book, rendition;
-    const base64String = `UEsDBBQAFggAANYDgUdvYassFAAAABQAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi9lcHViK3ppcFBLAwQUABYICADWA4FHAAAAAAIAAAAAAAAACQAAAE1FVEEtSU5GLwMAUEsDBBQAFggIANYDgUeQnwZ0mgAAAPQAAAAWAAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFWOwQ7CIBBE734F2atp0SuB9ltWulUisASo0b8Xa2zqcWdn5o0en8GLB+XiOBo49ycYh4O2HCu6SPn/JZo5FgNLjoqxuKIiBiqqWsWJ4sR2CRSrWm1qK4HhIITQmbnOzlNZz70i5sX7LmG9GfikWkfPaQYRaHLY1VciA5iSdxZrWyOZLqm0gL3jlY4NB/JXuqLkjqXlNuTreQNQSwMEFAAWCAgA1gOBR2DLzmZ4QgAAdbEAABQAAABpbmRleF9zcGxpdF8wMDUuaHRtbJ197ZIbx7Hlfz9FL2N3KUVgRqQs`;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+      }
+    });
 
     function toggleReader() {
       const viewer = document.getElementById("viewer");
       if (viewer.style.display === "none") {
         viewer.style.display = "block";
+
         if (!book) {
-          book = ePub("data:application/epub+zip;base64," + base64String);
+          book = ePub("epubs/zinn.epub");  // You MUST use correct path here!
           rendition = book.renderTo("viewer", {
             width: "100%",
             height: 600
