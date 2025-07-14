@@ -82,32 +82,35 @@
   <div id="viewer" style="display: none;"></div>
   
 <script>
-  let book, rendition;
-
-  function toggleReader() {
+  document.addEventListener("DOMContentLoaded", () => {
     const viewer = document.getElementById("viewer");
+    let bookLoaded = false;
 
-    if (viewer.style.display === "none") {
-      viewer.style.display = "block";
+    document.querySelector("button").addEventListener("click", () => {
+      if (!bookLoaded) {
+        viewer.style.display = "block";
 
-      // Initialize only once
-      if (!book) {
-        book = ePub("../epubs/zinn.epub");
+        const book = ePub("../epubs/zinn.epub", {
+          openAs: 'epub',
+          workers: false  // 👈 disable workers for GitHub Pages compatibility
+        });
 
-        rendition = book.renderTo("viewer", {
+        const rendition = book.renderTo("viewer", {
           width: "100%",
           height: 600
         });
 
         rendition.display().catch(err => {
           console.error("EPUB rendering failed:", err);
-          viewer.innerHTML = "<p style='color:red;'>Failed to render EPUB. Check console for errors.</p>";
+          viewer.innerHTML = "<p style='color:red;'>EPUB rendering failed.</p>";
         });
+
+        bookLoaded = true;
+      } else {
+        viewer.style.display = viewer.style.display === "none" ? "block" : "none";
       }
-    } else {
-      viewer.style.display = "none";
-    }
-  }
+    });
+  });
 </script>
 </body>
 </html>
