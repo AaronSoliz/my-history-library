@@ -80,7 +80,40 @@
   </div>
 
   <div id="viewer" style="display: none;"></div>
+<script>
+  let book, rendition;
 
+  function toggleReader() {
+    const viewer = document.getElementById("viewer");
+
+    if (viewer.style.display === "none") {
+      viewer.style.display = "block";
+
+      if (!book) {
+        try {
+          book = ePub("epubs/zinn.epub");
+
+          book.ready.then(() => {
+            rendition = book.renderTo("viewer", {
+              width: "100%",
+              height: 600
+            });
+            rendition.display();
+          }).catch(err => {
+            console.error("EPUB failed to load:", err);
+            viewer.innerHTML = "<p style='color:red;'>Failed to load EPUB. Check file path or GitHub Pages permissions.</p>";
+          });
+
+        } catch (err) {
+          console.error("Error:", err);
+          viewer.innerHTML = "<p style='color:red;'>EPUB.js error occurred.</p>";
+        }
+      }
+    } else {
+      viewer.style.display = "none";
+    }
+  }
+</script>
 <script>
   let book, rendition;
 
