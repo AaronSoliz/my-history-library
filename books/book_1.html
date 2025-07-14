@@ -5,12 +5,21 @@
   <title>A People's History of the United States</title>
   <script src="https://unpkg.com/epubjs/dist/epub.min.js"></script>
   <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+    }
+    body.dark {
+      --bg: #1e1e1e;
+      --text: #f0f0f0;
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
     }
     h1, h2 {
       margin-bottom: 10px;
@@ -20,12 +29,23 @@
       height: 600px;
       border: 1px solid #ccc;
       margin-top: 20px;
+      background: white;
     }
     .meta {
       margin-bottom: 20px;
     }
-    a {
-      color: #007bff;
+    .btns {
+      margin: 20px 0;
+    }
+    .btns a, .btns button {
+      margin-right: 10px;
+      padding: 10px 15px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -41,16 +61,34 @@
     <p><strong>Summary:</strong> A bottom-up view of U.S. history, focusing on marginalized voices and systemic critiques.</p>
   </div>
 
-  <h2>Read the Book</h2>
-  <div id="viewer"></div>
+  <div class="btns">
+    <button onclick="toggleReader()">Toggle Book Viewer</button>
+    <a href="epubs/zinn.epub.txt" download>Download EPUB</a>
+  </div>
+
+  <div id="viewer" style="display: none;"></div>
 
   <script>
+    // Preserve dark mode across pages
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
     const book = ePub("epubs/zinn.epub.txt");
     const rendition = book.renderTo("viewer", {
       width: "100%",
       height: 600
     });
-    rendition.display();
+
+    function toggleReader() {
+      const viewer = document.getElementById("viewer");
+      if (viewer.style.display === "none") {
+        viewer.style.display = "block";
+        rendition.display();
+      } else {
+        viewer.style.display = "none";
+      }
+    }
   </script>
 </body>
 </html>
