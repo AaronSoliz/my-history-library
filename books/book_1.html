@@ -14,16 +14,14 @@
       --text: #f0f0f0;
     }
     body {
+      background-color: var(--bg);
+      color: var(--text);
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: var(--bg);
-      color: var(--text);
       transition: background-color 0.3s, color 0.3s;
     }
-    h1, h2 {
-      margin-bottom: 10px;
-    }
+    h1, h2 { margin-bottom: 10px; }
     #viewer {
       width: 100%;
       height: 600px;
@@ -31,12 +29,8 @@
       margin-top: 20px;
       background: white;
     }
-    .meta {
-      margin-bottom: 20px;
-    }
-    .btns {
-      margin: 20px 0;
-    }
+    .meta { margin-bottom: 20px; }
+    .btns { margin: 20px 0; }
     .btns a, .btns button {
       margin-right: 10px;
       padding: 10px 15px;
@@ -48,6 +42,12 @@
       text-decoration: none;
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.body?.classList?.add('dark');
+    }
+  </script>
 </head>
 <body>
   <h1>A People's History of the United States</h1>
@@ -69,21 +69,21 @@
   <div id="viewer" style="display: none;"></div>
 
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-
-    const book = ePub("data:application/epub+zip;base64,UEsDBBQAFggAANYDgUdvYassFAAAABQAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi9lcHViK3ppcFBLAwQUABYICADWA4FHAAAAAAIAAAAAAAAACQAAAE1FVEEtSU5GLwMAUEsDBBQAFggIANYDgUeQnwZ0mgAAAPQAAAAWAAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFWOwQ7CIBBE734F2atp0SuB9ltWulUisASo0b8Xa2zqcWdn5o0en8GLB+XiOBo49ycYh4O2HCu6SPn/JZo5FgNLjoqxuKIiBiqqWsWJ4sR2CRSrWm1qK4HhIITQmbnOzlNZz70i5sX7LmG9GfikWkfPaQYRaHLY1VciA5iSdxZrWyOZLqm0gL3jlY4NB/JXuqLkjqXlNuTreQNQSwMEFAAWCAgA1gOBR2DLzmZ4QgAAdbEAABQAAABpbmRleF9zcGxpdF8wMDUuaHRtbJ197ZIbx7Hlfz9FL2N3KUVgRqQs");
-    const rendition = book.renderTo("viewer", {
-      width: "100%",
-      height: 600
-    });
+    let book, rendition;
+    const base64String = `UEsDBBQAFggAANYDgUdvYassFAAAABQAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi9lcHViK3ppcFBLAwQUABYICADWA4FHAAAAAAIAAAAAAAAACQAAAE1FVEEtSU5GLwMAUEsDBBQAFggIANYDgUeQnwZ0mgAAAPQAAAAWAAAATUVUQS1JTkYvY29udGFpbmVyLnhtbFWOwQ7CIBBE734F2atp0SuB9ltWulUisASo0b8Xa2zqcWdn5o0en8GLB+XiOBo49ycYh4O2HCu6SPn/JZo5FgNLjoqxuKIiBiqqWsWJ4sR2CRSrWm1qK4HhIITQmbnOzlNZz70i5sX7LmG9GfikWkfPaQYRaHLY1VciA5iSdxZrWyOZLqm0gL3jlY4NB/JXuqLkjqXlNuTreQNQSwMEFAAWCAgA1gOBR2DLzmZ4QgAAdbEAABQAAABpbmRleF9zcGxpdF8wMDUuaHRtbJ197ZIbx7Hlfz9FL2N3KUVgRqQs`;
 
     function toggleReader() {
       const viewer = document.getElementById("viewer");
       if (viewer.style.display === "none") {
         viewer.style.display = "block";
-        rendition.display();
+        if (!book) {
+          book = ePub("data:application/epub+zip;base64," + base64String);
+          rendition = book.renderTo("viewer", {
+            width: "100%",
+            height: 600
+          });
+          rendition.display();
+        }
       } else {
         viewer.style.display = "none";
       }
