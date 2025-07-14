@@ -75,7 +75,7 @@
 
   <div class="btns">
     <button onclick="toggleReader()"> View Book</button>
-    <a href="epubs/zinn.epub" download> Download EPUB</a>
+    <a href="epubs/A people's history of the United States_ 1492-present -- Zinn, Howard -- 2005 -- Harper Perennial -- e0be63f1b82fb8bc0bafec54e701926c -- Anna’s Archive.epub" download> Download EPUB</a>
     <a href="index.html"> Back to Home</a>
   </div>
 
@@ -90,7 +90,7 @@
       viewer.style.display = "block";
       if (!book) {
         try {
-          book = ePub("../epubs/zinn.epub"); // Corrected path
+          book = ePub("../epubs/A people's history of the United States_ 1492-present -- Zinn, Howard -- 2005 -- Harper Perennial -- e0be63f1b82fb8bc0bafec54e701926c -- Anna’s Archive.epub"); // Corrected path
 
           book.ready.then(() => {
             rendition = book.renderTo("viewer", {
