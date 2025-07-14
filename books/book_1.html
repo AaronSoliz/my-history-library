@@ -8,10 +8,12 @@
     :root {
       --bg: #f9f9f9;
       --text: #333;
+      --card: #fff;
     }
     body.dark {
       --bg: #1e1e1e;
       --text: #f0f0f0;
+      --card: #2c2c2c;
     }
     body {
       background-color: var(--bg);
@@ -21,7 +23,12 @@
       padding: 20px;
       transition: background-color 0.3s, color 0.3s;
     }
-    h1, h2 { margin-bottom: 10px; }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    .meta p {
+      margin: 5px 0;
+    }
     #viewer {
       width: 100%;
       height: 600px;
@@ -29,8 +36,9 @@
       margin-top: 20px;
       background: white;
     }
-    .meta { margin-bottom: 20px; }
-    .btns { margin: 20px 0; }
+    .btns {
+      margin: 20px 0;
+    }
     .btns a, .btns button {
       margin-right: 10px;
       padding: 10px 15px;
@@ -41,26 +49,34 @@
       cursor: pointer;
       text-decoration: none;
     }
+    .btns a:hover, .btns button:hover {
+      background: #0056b3;
+    }
   </style>
-
   <script>
-    // Dark mode must be set before the page renders
+    // Apply dark mode class before content renders
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
     }
   </script>
 </head>
-<body class="">
+<body>
   <h1>A People's History of the United States</h1>
+
   <div class="meta">
     <h2>by Howard Zinn</h2>
-    <p><strong>Year:</strong> 1980</p>
-    <p><strong>Summary:</strong> A bottom-up view of U.S. history.</p>
+    <p><strong>Publication Year:</strong> 1980</p>
+    <p><strong>Time Period Covered:</strong> 1492–2001</p>
+    <p><strong>Region:</strong> United States</p>
+    <p><strong>Themes:</strong> Social history, labor, civil rights, anti-establishment</p>
+    <p><strong>Audience:</strong> General public, students</p>
+    <p><strong>Summary:</strong> A bottom-up view of U.S. history, focusing on marginalized voices and systemic critiques of power, war, and capitalism. Zinn presents American history through the eyes of workers, women, African Americans, Native Americans, and others often left out of mainstream narratives.</p>
   </div>
 
   <div class="btns">
-    <button onclick="toggleReader()">Toggle Book Viewer</button>
-    <a href="epubs/zinn.epub" download>Download EPUB</a>
+    <button onclick="toggleReader()">📖 View Book</button>
+    <a href="epubs/zinn.epub" download>⬇️ Download EPUB</a>
+    <a href="index.html">⬅️ Back to Home</a>
   </div>
 
   <div id="viewer" style="display: none;"></div>
@@ -80,7 +96,7 @@
         viewer.style.display = "block";
 
         if (!book) {
-          book = ePub("epubs/zinn.epub");  // You MUST use correct path here!
+          book = ePub("epubs/zinn.epub");
           rendition = book.renderTo("viewer", {
             width: "100%",
             height: 600
