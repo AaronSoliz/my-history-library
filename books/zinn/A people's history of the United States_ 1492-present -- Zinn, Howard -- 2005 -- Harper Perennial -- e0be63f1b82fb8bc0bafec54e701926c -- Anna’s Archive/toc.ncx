@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="nl">
+  <head>
+    <meta content="4aa0aaa3-3bf7-40c4-ac6e-2b178edc3561" name="dtb:uid"/>
+    <meta content="2" name="dtb:depth"/>
+    <meta content="calibre (0.7.43)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>A people's history of the United States: 1492-present</text>
+  </docTitle>
+  <navMap>
+    <navPoint class="chapter" id="1cd85cd7-e643-4af5-bb75-dbb4bb5032c9" playOrder="1">
+      <navLabel>
+        <text>A People’s History of the United States</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_001.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="8bab0d5a-76a0-4303-bd0c-3106fc133e85" playOrder="2">
+      <navLabel>
+        <text>1. Columbus, The Indians, and Human P...</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_002.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="5fdfd695-7f2e-4d13-aa0f-effa5f61be15" playOrder="3">
+      <navLabel>
+        <text>2. Drawing the Color Line</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_003.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="fc6efcd6-40fd-405f-9350-3908a290b03b" playOrder="4">
+      <navLabel>
+        <text>3. Persons of Mean and Vile Condition</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_004.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="157e9f55-7e82-417d-92d1-2f4fdc820a2f" playOrder="5">
+      <navLabel>
+        <text>4. Tyranny is Tyranny</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_005.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="64fec38d-ebb0-4276-a341-80e8a50f4109" playOrder="6">
+      <navLabel>
+        <text>5. A kind of Revolution</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_006.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="df7ec964-04bd-473a-bad4-89b7fa68ccae" playOrder="7">
+      <navLabel>
+        <text>6. The Intimately Oppressed</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_007.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="0c3b0f00-8a6d-49c3-b8ae-1d167602e703" playOrder="8">
+      <navLabel>
+        <text>7. As Long As Grass Grows Or Water Runs</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_008.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="86b62f50-67bb-460b-a978-ed9d9d728e38" playOrder="9">
+      <navLabel>
+        <text>8. We Take Nothing by Conquest, Thank...</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_009.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="d5619a71-b298-4014-8e44-b6b48439d87b" playOrder="10">
+      <navLabel>
+        <text>9. Slavery Without Submission, Emanci...</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_010.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="034c1528-056b-4260-b6d2-b82737c1dccf" playOrder="11">
+      <navLabel>
+        <text>10. The Other Civil War</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_011.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="f4abce38-5421-4a01-99e9-9ec8691e3e81" playOrder="12">
+      <navLabel>
+        <text>11. Robber Barons And Rebels</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_012.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="448bb8f6-715c-4222-9d0e-8f29335def30" playOrder="13">
+      <navLabel>
+        <text>12. The Empire and the People</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_013.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="56c61e31-6ef5-4a40-bc8f-160e6f23e3bb" playOrder="14">
+      <navLabel>
+        <text>13. The Socialist Challenge</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_014.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="b7f4dd68-2b68-40ac-8e4d-720ca6319bd0" playOrder="15">
+      <navLabel>
+        <text>14. War Is the Health of the State</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_015.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="6c303be9-ab15-4eda-98ce-5c3c5bb0db63" playOrder="16">
+      <navLabel>
+        <text>15. Self-help in Hard Times</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_016.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="036d9440-0ac1-4b31-8eff-7593dc105b4e" playOrder="17">
+      <navLabel>
+        <text>16. A People's War?</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_017.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="da748cbe-a0c0-40cd-b382-b0b8edecce76" playOrder="18">
+      <navLabel>
+        <text>17. "Or Does It Explode?"</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_018.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="102a95fe-cdf5-4874-875a-1771fa22a08b" playOrder="19">
+      <navLabel>
+        <text>18. The Impossible Victory: Vietnam</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_019.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="ab1bd873-d7b7-4195-80a1-856295f8faeb" playOrder="20">
+      <navLabel>
+        <text>19. Surprises</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_020.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="8616a5bd-36a3-4ea7-b66e-8aea6d0fd149" playOrder="21">
+      <navLabel>
+        <text>20. The Seventies: Under Control?</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_021.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="8f411e96-8e5f-4d22-8f2c-621891063c3f" playOrder="22">
+      <navLabel>
+        <text>21. Carter-Reagan-Bush: The Bipartisa...</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_022.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="7957b30b-a9e0-43ce-b069-14fd731d9727" playOrder="23">
+      <navLabel>
+        <text>22. The Unreported Resistance</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_023.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="89ab4bbd-4621-4334-8b15-aee03353bcb0" playOrder="24">
+      <navLabel>
+        <text>23. The Clinton Presidency and the Cr...</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_024.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="93ebab66-dbb7-46bf-ae88-25be8da531e6" playOrder="25">
+      <navLabel>
+        <text>24.The Coming Revolt of the Guards</text>
+      </navLabel>
+      <content src="A_people_s_history_of_the_Unite_split_025.html"/>
+    </navPoint>
+  </navMap>
+</ncx>
