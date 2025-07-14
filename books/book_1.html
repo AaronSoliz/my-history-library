@@ -86,26 +86,23 @@
 
   function toggleReader() {
     const viewer = document.getElementById("viewer");
+
     if (viewer.style.display === "none") {
       viewer.style.display = "block";
-      if (!book) {
-        try {
-          book = ePub("../epubs/A people's history of the United States_ 1492-present -- Zinn, Howard -- 2005 -- Harper Perennial -- e0be63f1b82fb8bc0bafec54e701926c -- Anna’s Archive.epub"); // Corrected path
 
-          book.ready.then(() => {
-            rendition = book.renderTo("viewer", {
-              width: "100%",
-              height: 600
-            });
-            rendition.display();
-          }).catch(err => {
-            console.error("EPUB failed to load:", err);
-            viewer.innerHTML = "<p style='color:red;'>Failed to load EPUB. Check console errors or path.</p>";
-          });
-        } catch (err) {
-          console.error("EPUB.js error:", err);
-          viewer.innerHTML = "<p style='color:red;'>EPUB.js initialization error.</p>";
-        }
+      // Initialize only once
+      if (!book) {
+        book = ePub("../epubs/zinn.epub");
+
+        rendition = book.renderTo("viewer", {
+          width: "100%",
+          height: 600
+        });
+
+        rendition.display().catch(err => {
+          console.error("EPUB rendering failed:", err);
+          viewer.innerHTML = "<p style='color:red;'>Failed to render EPUB. Check console for errors.</p>";
+        });
       }
     } else {
       viewer.style.display = "none";
