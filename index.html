@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script>
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    document.body?.classList?.add('dark');
+  }
+</script>
 <head>
   <meta charset="UTF-8" />
   <title>History Book Recommendations</title>
@@ -63,12 +69,6 @@
       text-decoration: none;
     }
   </style>
-  <script>
-    // Set dark mode before anything renders
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
 </head>
 <body>
   <header>
