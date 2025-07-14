@@ -86,13 +86,11 @@
 
   function toggleReader() {
     const viewer = document.getElementById("viewer");
-
     if (viewer.style.display === "none") {
       viewer.style.display = "block";
-
       if (!book) {
         try {
-          book = ePub("epubs/zinn.epub");
+          book = ePub("../epubs/zinn.epub"); // Corrected path
 
           book.ready.then(() => {
             rendition = book.renderTo("viewer", {
@@ -102,12 +100,11 @@
             rendition.display();
           }).catch(err => {
             console.error("EPUB failed to load:", err);
-            viewer.innerHTML = "<p style='color:red;'>Failed to load EPUB. Check file path or GitHub Pages permissions.</p>";
+            viewer.innerHTML = "<p style='color:red;'>Failed to load EPUB. Check console errors or path.</p>";
           });
-
         } catch (err) {
-          console.error("Error:", err);
-          viewer.innerHTML = "<p style='color:red;'>EPUB.js error occurred.</p>";
+          console.error("EPUB.js error:", err);
+          viewer.innerHTML = "<p style='color:red;'>EPUB.js initialization error.</p>";
         }
       }
     } else {
