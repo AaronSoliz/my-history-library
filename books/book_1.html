@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.add('dark');
-    document.body?.classList?.add('dark');
-  }
-</script>
   <meta charset="UTF-8" />
   <title>A People's History of the United States</title>
+  <script>
+    // Apply dark mode as early as possible
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.body?.classList?.add('dark');
+    }
+  </script>
   <script src="https://unpkg.com/epubjs/dist/epub.min.js"></script>
   <style>
     :root {
@@ -59,7 +60,7 @@
       background: #0056b3;
     }
   </style>
-
+</head>
 <body>
   <h1>A People's History of the United States</h1>
 
@@ -70,47 +71,49 @@
     <p><strong>Region:</strong> United States</p>
     <p><strong>Themes:</strong> Social history, labor, civil rights, anti-establishment</p>
     <p><strong>Audience:</strong> General public, students</p>
-    <p><strong>Summary:</strong> A bottom-up view of U.S. history, focusing on marginalized voices and systemic critiques of power, war, and capitalism. Zinn presents American history through the eyes of workers, women, African Americans, Native Americans, and others often left out of mainstream narratives.</p>
+    <p><strong>Summary:</strong> A bottom-up view of U.S. history, focusing on marginalized voices and systemic critiques of power, war, and capitalism.</p>
   </div>
 
   <div class="btns">
-    <button onclick="toggleReader()"> View Book</button>
-    <a href="epubs/A people's history of the United States_ 1492-present -- Zinn, Howard -- 2005 -- Harper Perennial -- e0be63f1b82fb8bc0bafec54e701926c -- Anna’s Archive.epub" download> Download EPUB</a>
-    <a href="index.html"> Back to Home</a>
+    <button id="readBtn">📖 View Book</button>
+    <a href="../epubs/zinn.epub" download>⬇️ Download EPUB</a>
+    <a href="../index.html">⬅️ Back to Home</a>
   </div>
 
   <div id="viewer" style="display: none;"></div>
-  
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const viewer = document.getElementById("viewer");
-    let bookLoaded = false;
 
-    document.querySelector("button").addEventListener("click", () => {
-      if (!bookLoaded) {
-        viewer.style.display = "block";
-
-        const book = ePub("../epubs/zinn.epub", {
-          openAs: 'epub',
-          workers: false  // 👈 disable workers for GitHub Pages compatibility
-        });
-
-        const rendition = book.renderTo("viewer", {
-          width: "100%",
-          height: 600
-        });
-
-        rendition.display().catch(err => {
-          console.error("EPUB rendering failed:", err);
-          viewer.innerHTML = "<p style='color:red;'>EPUB rendering failed.</p>";
-        });
-
-        bookLoaded = true;
-      } else {
-        viewer.style.display = viewer.style.display === "none" ? "block" : "none";
+  <script>
+    // Add dark mode to body after DOM loads
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
       }
+
+      const readBtn = document.getElementById("readBtn");
+      const viewer = document.getElementById("viewer");
+      let isLoaded = false;
+
+      readBtn.addEventListener("click", () => {
+        if (!isLoaded) {
+          viewer.style.display = "block";
+
+          const book = ePub("../epubs/zinn.epub", { workers: false }); // disables workers for GitHub Pages
+          const rendition = book.renderTo("viewer", {
+            width: "100%",
+            height: 600
+          });
+
+          rendition.display().catch(err => {
+            viewer.innerHTML = "<p style='color:red;'>EPUB rendering failed. Check console.</p>";
+            console.error(err);
+          });
+
+          isLoaded = true;
+        } else {
+          viewer.style.display = viewer.style.display === "none" ? "block" : "none";
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
